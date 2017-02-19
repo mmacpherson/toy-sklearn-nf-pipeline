@@ -56,4 +56,4 @@ process summarize {
     "report.py dataset models* > summary"
 }
 
-summary.collectFile(name: params.out)`
+summary.collectFile(name: params.out)
