@@ -1,3 +1,7 @@
 work/
+
 .nextflow/
 .nextflow.*
+
+results/*
+!results/.gitkeep

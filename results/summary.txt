@@ -1,6 +1,0 @@
-robust       ols          53.13%
-scaled       ols          53.13%
-unscaled     ols          53.13%
-robust       elasticnet   53.04%
-unscaled     elasticnet   53.02%
-scaled       elasticnet   52.90%

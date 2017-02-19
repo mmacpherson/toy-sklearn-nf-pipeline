@@ -1,3 +1,5 @@
+#!/usr/bin/env python -v
+
 import sys
 
 import pandas as pd

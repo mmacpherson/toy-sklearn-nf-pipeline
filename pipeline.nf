@@ -29,9 +29,7 @@ process process_dataset {
     output:
     file dataset into dataset_model, dataset_report
 
-    """
-    python $srcDir/process_dataset.py dataset_text dataset
-    """
+    "process_dataset.py dataset_text dataset"
 }
 
 process build_model {
@@ -43,7 +41,7 @@ process build_model {
     output:
     file model
 
-    "python $srcDir/build_model.py dataset $scale $engine model"
+    "build_model.py dataset $scale $engine model"
 
 }
 
@@ -55,7 +53,7 @@ process summarize {
     output:
     file summary
 
-    "python $srcDir/report.py dataset models* > summary"
+    "report.py dataset models* > summary"
 }
 
-summary.collectFile(name: params.out)
+summary.collectFile(name: params.out)`
