@@ -37,13 +37,13 @@ process process_dataset {
 process build_model {
     input:
     file dataset_model
-    each sc from params.scales
-    each en from params.engines
+    each scale from params.scales
+    each engine from params.engines
 
     output:
     file model
 
-    "python $srcDir/build_model.py dataset $sc $en model"
+    "python $srcDir/build_model.py dataset $scale $engine model"
 
 }
 
