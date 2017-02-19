@@ -1,10 +1,10 @@
 all: run
 
 run:
-	nextflow run main.nf -resume
+	nextflow run main.nf -resume -without-docker
 
 run-fresh:
-	nextflow run main.nf
+	nextflow run main.nf -without-docker
 
 run-docker:
 	nextflow run main.nf -with-docker
