@@ -1,11 +1,8 @@
 #!/usr/bin/env nextflow
 
-def srcDir = baseDir + '/src'
-def resultsDir = baseDir + '/results'
-
 
 params.url = "https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/breast-cancer-wisconsin.data"
-params.out = "$resultsDir/summary.txt"
+params.outdir = "results"
 params.scales = ['unscaled', 'scaled', 'robust']
 params.engines = ['ols', 'elasticnet']
 
@@ -46,14 +43,15 @@ process build_model {
 }
 
 process summarize {
+
+    publishDir params.outdir
+
     input:
     file dataset_report
     file "models*" from model.toList()
 
     output:
-    file summary
+    file "summary.txt"
 
-    "report.py dataset models* > summary"
+    "report.py dataset models* > summary.txt"
 }
-
-summary.collectFile(name: params.out)
