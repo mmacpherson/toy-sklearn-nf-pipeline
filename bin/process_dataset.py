@@ -28,7 +28,7 @@ def main(args):
 
     df = pd.read_csv(fname, sep=',', na_values='?')
 
-    df.columns = 'id thickness size_u shape_u marg_adh sng_ep bare_nuc bland_chr normal_nuc mitoses class'.split()
+    df.columns = 'id thickness size_u shape_u marg_adh sng_ep bare_nuc bland_chr normal_nuc mitoses classif'.split()
     df = df.dropna()
 
     df.to_pickle(fout)

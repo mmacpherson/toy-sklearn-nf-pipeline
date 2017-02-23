@@ -5,7 +5,8 @@ import sys
 import pandas as pd
 
 from sklearn.preprocessing import StandardScaler, RobustScaler, FunctionTransformer
-from sklearn.linear_model import LinearRegression, ElasticNetCV
+from sklearn.linear_model import LinearRegression, ElasticNetCV, BayesianRidge
+from sklearn.svm import LinearSVC
 from sklearn.pipeline import Pipeline
 from sklearn.externals import joblib
 
@@ -16,7 +17,9 @@ SMAP = dict(
 
 MMAP = dict(
     ols=LinearRegression,
-    elasticnet=ElasticNetCV, )
+    elasticnet=ElasticNetCV,
+    bayesianridge=BayesianRidge, 
+    svm=LinearSVC, )
 
 
 def main(args):
@@ -24,9 +27,9 @@ def main(args):
 
     df = pd.read_pickle(dataset)
 
-    y = df.thickness.values.ravel()
+    y = df.classif.values.ravel()
     X = df[
-        'size_u shape_u marg_adh sng_ep bare_nuc bland_chr normal_nuc mitoses class'.
+        'thickness size_u shape_u marg_adh sng_ep bare_nuc bland_chr normal_nuc mitoses'.
         split()].values
 
     fitter = Pipeline([

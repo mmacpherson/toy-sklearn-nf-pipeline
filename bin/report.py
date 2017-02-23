@@ -9,9 +9,9 @@ from sklearn.externals import joblib
 def main(args):
 
     df = pd.read_pickle(args[0])
-    y = df.thickness.values.ravel()
+    y = df.classif.values.ravel()
     X = df[
-        'size_u shape_u marg_adh sng_ep bare_nuc bland_chr normal_nuc mitoses class'.
+        'thickness size_u shape_u marg_adh sng_ep bare_nuc bland_chr normal_nuc mitoses'.
         split()].values
 
     results = []
