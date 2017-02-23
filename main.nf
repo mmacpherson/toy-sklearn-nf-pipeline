@@ -4,7 +4,7 @@
 params.url = "https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/breast-cancer-wisconsin.data"
 params.outdir = "results"
 params.scales = ['unscaled', 'scaled', 'robust']
-params.engines = ['ols', 'elasticnet']
+params.engines = ['ols', 'elasticnet', 'bayesianridge', 'svm']
 
 
 process download_and_unpack {
