@@ -5,3 +5,6 @@ work/
 
 results/*
 !results/.gitkeep
+
+.DS_Store
+bin/.DS_Store
